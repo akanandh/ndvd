@@ -1,0 +1,68 @@
+<div class="main-content">
+<div class="container-fluid">
+        <div class ='card'>
+
+
+ <div class="card-header" attr.data-background-color={{color}}>
+                     <h4 class="title text-center">Gallery</h4>
+                  </div>
+				   <div class="card-content" >
+				   
+
+<div *ngFor="let name of video" style="display:none;" id={{name.id}}>
+    <video class="lg-video-object lg-html5" controls preload="none">
+        <source src={{name.video}} type="video/mp4">
+         Your browser does not support HTML5 video.
+    </video>
+</div>
+<div *ngFor="let name of live" style="display:none" id={{name.id}}>
+    <iframe class="lg-video-object lg-html5" width="854" height="480" [src]='name.video | safe' frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    </div>
+
+<div *ngFor="let name of gallery">
+<div>
+<div class='row video-gal'>
+<div class='col-md-8'>
+<span class='video-heading'>{{name[0].activity}}</span>
+</div>
+<div class='col-md-4'>
+<button type="submit" class="btn pull-right {{colors}}">SUBSCRIBE</button>
+</div>
+</div>
+</div>
+<div class='demo-gallery'>
+
+<ul id={{name[0].name}} class='list-unstyled row'>
+  <li *ngFor="let val of name" class="col-xs-6 col-sm-4 col-md-3 video" data-poster="../../assets/img/download6.jpg" data-sub-html="<h4>CGI Animated Short HD: Student Academy Award Winning 'PeckPocketed' by Kevin Herron</h4>" attr.data-html='{{val.id}}'>
+                            <a href="">
+                                <img class="img-responsive" src='../../assets/img/download6.jpg'>
+                                <div class="demo-gallery-poster">
+                                    <img src="../../assets/img/download4.png">
+									
+                                </div>
+                            </a>
+							
+                        </li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+            
+

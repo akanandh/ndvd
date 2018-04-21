@@ -1,0 +1,18 @@
+.image-upload,.video-upload{
+	margin-left:20px;
+	float:left;
+	color:#e9423f;
+}
+.post-button{
+	margin-right:20px;
+}
+input{
+	color:#9c9ea1;
+}
+#event_type_label{
+	padding-top:18px;
+}
+#event_type_text{
+	padding-top:38px;
+	padding-bottom:14px;
+}

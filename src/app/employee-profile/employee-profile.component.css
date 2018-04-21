@@ -1,0 +1,47 @@
+.imageUser{
+	/*background: lightblue url("584856bce0bb315b0f7675ad.png") no-repeat fixed center; */
+}
+.home-user,.phone-user{
+	margin-left: 16px;
+    margin-top: 10px;
+	width:100%;
+}
+.user-profile-content{
+	text-align:unset;
+}
+.user-profile-title{
+	font-weight:bold;
+	text-align:center;
+	word-wrap:break-word;
+}
+.user-profile-desig{
+	text-align:center;
+	word-wrap:break-word;
+}
+.val{
+	padding:8px 20px;
+}
+.card-user{
+	max-width:110px;
+	max-height:110px;
+}
+
+input{
+	color:#9c9ea1;
+}
+.user-profile{
+	margin-top:20px;
+}
+.user-edit{
+	color: #00bcd4;
+	margin-left:11px;
+	cursor:pointer;
+}
+.user-delete{
+	color: #00bcd4;
+	margin-left:11px;
+	cursor:pointer;
+}
+.user-no{
+	margin-bottom:20px;
+}

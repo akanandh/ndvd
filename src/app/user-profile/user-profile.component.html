@@ -1,0 +1,140 @@
+<div class="main-content">
+<div class="container-fluid">
+    <div class="row">
+    <!--    <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title">Edit Profile</h4>
+                    <p class="category">Complete your profile</p>
+                </div>
+                <div class="card-content">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Company (disabled)</label>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Username</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Email address</label>
+                                    <input type="email" class="form-control" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Fist Name</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Last Name</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Adress</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">City</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Country</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Postal Code</label>
+                                    <input type="text" class="form-control" >
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>About Me</label>
+                                    <div class="form-group form-black label-floating is-empty">
+                                        <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                        <textarea class="form-control" rows="5"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div> -->
+
+		<div class="user-profile">
+        <div class="col-md-3" *ngFor = "let item of items1 |filter:search" >
+        <!-- <div class="col-md-3" *ngFor='let item of items'>-->
+            <div class="card card-profile" >
+                <div class="card-avatar card-user">
+                  <!--  <a href="#pablo">-->
+                        <img class="img"  src={{domain+item.path}} /><span class="user-profile-change"></span>
+						
+                   <!-- </a>-->
+                </div>
+
+                <div class="content">
+					<h6 class="card-title user-profile-title">{{item.user_id}}<fa name="pencil" size='1g' class="user-edit" (click)='navigateEdit($event,item.user_id)'></fa><fa name="eye" size='1g' class="user-edit" (click)='navigateView($event,item.user_id)'></fa><fa name="close" size='1g' class="user-delete" (click)='delete($event,item.user_id)'></fa></h6>
+                    <h4 class="card-title user-profile-design">{{item.name}}</h4>
+					
+                    
+                    <!--<p class="card-content">
+					<h4 class="category text-gray user-profile-desig">Software Engineer</h4>
+				<i class='imageUser'></i>
+                        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                    </p>-->
+					<!--<div class="home-user">
+					<fa name="home" size="2x"></fa>
+					<span class="val">Tirunelveli District</span>
+					</div>-->
+					<div class="text-gray user-no">
+					<fa name="phone" size="1g"></fa><span>{{item.phone}}</span></div>
+					<!--<div class="phone-user">
+					<fa name="birthday-cake" size="2x"></fa><span class="val">25-01-1995</span></div>
+					<div class="phone-user">
+					<fa name="envelope-open" size="2x"></fa><span class="val">janani.apasa@gmail.com</span></div>-->
+					<!--<div class="user-profile-desig">-->
+                  <!--  <button class="btn btn-danger btn-round val">View</button>
+                    <button class="btn btn-danger btn-round val">Edit</button>-->
+					</div>
+
+               <!-- </div>-->
+            </div>
+        </div>
+        </div>
+        
+    </div>
+</div>
+</div>

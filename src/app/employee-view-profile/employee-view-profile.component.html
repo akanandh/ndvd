@@ -1,0 +1,407 @@
+<div class="main-content">
+   <div class="container-fluid">
+   <div class="col-md-4">
+               <div class="card">
+			    <img class="img"  src={{profile.src}} /><span class="user-profile-change"></span>
+				
+				
+			  <div class="card-content">
+			  <div class='row view-profile'>
+					<span class="view-profile-title">{{profile.name}}</span>
+					</div>
+					<div class='row view-profile-design'>
+                    <span class="view-profile-design">{{profile.dob}}</span>
+					</div>
+					<div class='row view-profile-design'>
+                    <span class="view-profile-design">{{profile.gender}}-{{profile.mariatalStatus}}</span>
+					</div>
+					<div class='row view-profile-design'>
+                    <span class="view-profile-design">{{profile.address}}-{{profile.postalCode}}</span>
+					</div>
+					<div class='row view-profile-design'>
+                    <span class="view-profile-design">{{profile.country}}</span>
+					</div>
+					<div class='row view-profile-design'>
+                    <span class="view-profile-design">{{profile.phoneNo}}</span>
+					</div>
+					<div class='row view-profile-design'>
+                    <span class="view-profile-design">{{profile.emailId}}</span>
+					</div>
+					
+					</div>
+			   </div>
+			   </div>
+    <div class="col-md-8">
+               <div class="card">
+			    
+				
+			  <div class="card-content">
+			  <div class='educational'>
+			  <div class='row view-profile'>
+					<span class="view-profile-title">Educational Details</span>
+					</div>
+					<div class='row view-profile-design'>
+                    <span class="view-profile-design">{{profile.course}} {{profile.year}}</span>
+					</div>
+					<div class='row view-profile-design'>
+                    <span class="view-profile-design">{{profile.college}}</span>
+					</div>
+					</div>
+					<div class='educational'>
+					
+					 <div class='row view-profile'>
+					<span class="view-profile-title">Occupational Details</span>
+					</div>
+					<div class='row view-profile-design'>
+                    <span class="view-profile-design">{{profile.designation}} {{profile.salaried}}</span>
+					</div>
+					<div class='row view-profile-design'>
+                    <span class="view-profile-design">{{profile.company}}</span>
+					</div>
+					 </div>
+					<div>
+					<div class='family'>
+					 <div class='row view-profile'>
+					<span class="view-profile-title">Family Details</span>
+					</div>
+					
+					<p-dataTable [value]="details" >
+    <p-column field="name" header="Name"></p-column>
+    <p-column field="relation" header="Relation"></p-column>
+    <p-column field="date" header="DateOfBirth"></p-column>
+    <p-column field="occupation" header="Occupation"></p-column>
+</p-dataTable>
+</div>
+			   </div>
+			  
+			   </div>
+   
+   
+      <!--<div class="row">
+         <div class="col-md-12">
+            <div class="col-md-12">
+               <div class="card">
+                  <div class="card-header" data-background-color="blue">
+					 <h4 class="title text-center">Finance Transaction</h4>
+					  <fa name="save" class='pull-right' size="2x" style='margin-top: -28px;color: #e3f4f7;cursor: pointer;' (click)='updateTransaction()'></fa>
+                  </div>
+                  <div class="card-content">
+                     <form id="form1" >
+					 <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Bank Account Number</label>
+                                 <input type="text" id='account-number' class="form-control accountNo"  name='account-number' [(ngModel)]='accountNumber'>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">PAN Number</label>
+                                 <input type="text" id='pan-number' class="form-control panNo"  name='pan-no' [(ngModel)]='panNo'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">AADHAR Number</label>
+                                 <input type="text" id='aadhar-no'class="form-control"  name='aadhar-no' [(ngModel)]='aadharNo'>
+                              </div>
+                           </div>
+                        </div>
+						<div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">IFSC Code</label>
+                                 <input type="text" id='ifsc-code' class="form-control ifscCode"  name='ifsc-code' [(ngModel)]='ifscCode'>
+                              </div>
+                           </div>
+						   <div class="col-md-4">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Date Of Transaction</label>
+                                 <input type="text" id='transaction-date' class="form-control date"  name='transaction-date' [(ngModel)]='transactionDate' (focus)='transactionDateFocus($event)' (blur)='transactionDateBlur($event)'>
+                              </div>
+                           </div>
+						   <div class="col-md-4">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Transaction Code</label>
+                                 <input type="text" id='transaction-code'class="form-control"  name='ransactionCode' [(ngModel)]='transactionCode'>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-black label-floating">
+                                 <select class="selectpicker payReceive" data-style="select-with-transition" name='pay-receive' [(ngModel)]="payReceive" (ngModelChange)="onChange($event)" title='Account Payable/Receivable'>
+                                    <option *ngFor="let name of payableReceivable" [value]="name.name">{{name.name}}</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <!--<div class="row">
+                           <div class="col-md-6">
+                                                     									  <div>
+                                                             <label class="control-label">Gender</label>
+                                                           
+                                                         </div>
+                           <div class="md-radio md-radio-inline">
+                           <input id="user-male" type="radio" name="g1" >
+                           <label for="user-male">Male</label>
+                           </div>
+                           <div class="md-radio md-radio-inline">
+                           <input id="user-female" type="radio" name="g1">
+                           <label for="user-female">Female</label>
+                           </div>
+                           </div>
+                           <div class="col-md-6">
+                                                     									  <div>
+                                                             <label class="control-label">Marital Status</label>
+                                                           
+                                                         </div>
+                           <div class="md-radio md-radio-inline">
+                           <input id="user-married" type="radio" name="g2">
+                           <label for="user-married">Married</label>
+                           </div>
+                           <div class="md-radio md-radio-inline">
+                           <input id="user-unmarried" type="radio" name="g2">
+                           <label for="user-unmarried">Unmarried</label>
+                           </div>
+                           </div>
+                           
+                           </div>-->
+						  <!-- <div *ngIf='payRec==0'>
+						   <div class="row">
+                          <div class="col-md-12">
+                              <div class="form-black label-floating">
+                                 <select class="selectpicker receivable" data-style="select-with-transition" name='receivable' [(ngModel)]="receivable" (ngModelChange)="onRecChange($event)" title='Rent/Donation/Daily Collection'>
+                                    <option *ngFor="let name of receivableO" [value]="name.name">{{name.name}}</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+						<div *ngIf='rec==0'>
+						   <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Survey No</label>
+                                 <input type="text" id='survey-no' class="form-control surveyNo"  name='survey-no' [(ngModel)]='surveyNo'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Tenant Name</label>
+                                 <input type="text" id='tenant-name'class="form-control"  name='tenant_name' [(ngModel)]='tenantName'>
+                              </div>
+                           </div>
+                        </div>
+						    <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Rent Period</label>
+                                 <input type="text" id='rent-period' class="form-control rentPeriod"  name='rent-period' [(ngModel)]='rentPeriod'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Amount</label>
+                                 <input type="text" id='amount'class="form-control"  name='amount' [(ngModel)]='amount'>
+                              </div>
+                           </div>
+                        </div>
+						   </div>
+						   <div *ngIf='rec==1'>
+						   <div class="row">
+                          <div class="col-md-6">
+                              <div class="form-black label-floating" style="margin-top:10px">
+                                 <select class="selectpicker member" data-style="select-with-transition" name='member' [(ngModel)]="member" title='member/non-member'>
+                                    <option *ngFor="let name of memNonMem" [value]="name.name">{{name.name}}</option>
+                                 </select>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Name</label>
+                                 <input type="text" id='name'class="form-control"  name='name' [(ngModel)]='name'>
+                              </div>
+                           </div>
+                        </div>
+						   <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Donation Type</label>
+                                 <input type="text" id='donation-type' class="form-control donationType"  name='donation-type' [(ngModel)]='donationType'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Amount</label>
+                                 <input type="text" id='donation-amount'class="form-control"  name='donation-amount' [(ngModel)]='donationAmount'>
+                              </div>
+                           </div>
+                        </div>
+						   
+						   
+						   </div>
+						   <div *ngIf='rec==2'>
+						    <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Type</label>
+                                 <input type="text" id='type' class="form-control type"  name='type' [(ngModel)]='type'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Amount</label>
+                                 <input type="text" id='daily-amount'class="form-control"  name='daily-amount' [(ngModel)]='dailyAmount'>
+                              </div>
+                           </div>
+                        </div>
+						   
+						   </div>
+						   
+						   
+						   </div>
+						   <div *ngIf='payRec==1'>
+						   <div class="row">
+						   <div class="col-md-12">
+                              <div class="form-black label-floating">
+                                 <select class="selectpicker payable" data-style="select-with-transition" (ngModelChange)="onPayChange($event)" name='payable' [(ngModel)]="payable" title='Purchase/Hire/Gift'>
+                                    <option *ngFor="let name of payableO" [value]="name.name">{{name.name}}</option>
+                                 </select>
+                              </div>
+                           </div>
+						   </div>
+						    <div *ngIf='pay==0'>
+						    <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Vendor Code</label>
+                                 <input type="text" id='type' class="form-control vendorCode"  name='type' [(ngModel)]='vendorCode'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">purchase Date</label>
+                                 <input type="text" id='purchase-date'class="form-control"  name='purchase-date' [(ngModel)]='purchaseDate' (focus)='transactionDateFocus($event)' (blur)='transactionDateBlur($event)'>
+                              </div>
+                           </div>
+                        </div>
+						 <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Item</label>
+                                 <input type="text" id='item' class="form-control item"  name='type' [(ngModel)]='item'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Amount</label>
+                                 <input type="text" id='purchase-amount'class="form-control"  name='purchase-amount' [(ngModel)]='purchaseAmount'>
+                              </div>
+                           </div>
+                        </div>
+						 <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Description</label>
+                                 <input type="text" id='description' class="form-control description"  name='type' [(ngModel)]='description'>
+                              </div>
+                           </div>
+						   </div>
+						   
+						   </div>
+						   <div *ngIf='pay==1'>
+						   <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Vendor Code</label>
+                                 <input type="text" id='hire-vendor-code' class="form-control hireVendorCode"  name='type' [(ngModel)]='hireVendorCode'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">No Of Days</label>
+                                 <input type="text" id='no-of-days'class="form-control"  name='no-of-days' [(ngModel)]='noOfDays'>
+                              </div>
+                           </div>
+                        </div>
+						 <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Item</label>
+                                 <input type="text" id='hire-item' class="form-control hire-item"  name='hire-item' [(ngModel)]='hireItem'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Amount</label>
+                                 <input type="text" id='hire-amount'class="form-control"  name='hire-amount' [(ngModel)]='hireAmount'>
+                              </div>
+                           </div>
+                        </div>
+						 <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Description</label>
+                                 <input type="text" id='hire-description' class="form-control hireDescription"  name='hireDescription' [(ngModel)]='hireDescription'>
+                              </div>
+                           </div>
+						   </div>
+						   
+						   
+						   </div>
+						   <div *ngIf='pay==2'>
+						   <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Gift Given Date</label>
+                                 <input type="text" id='gift-date' class="form-control giftDate"  name='gift-date' [(ngModel)]='giftDate' (focus)='transactionDateFocus($event)' (blur)='transactionDateBlur($event)'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">To</label>
+                                 <input type="text" id='to'class="form-control"  name='to' [(ngModel)]='to'>
+                              </div>
+                           </div>
+                        </div>
+						 <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Item</label>
+                                 <input type="text" id='gift-item' class="form-control giftItem"  name='gift-item' [(ngModel)]='giftItem'>
+                              </div>
+                           </div>
+						   <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Amount</label>
+                                 <input type="text" id='gift-amount'class="form-control"  name='gift-amount' [(ngModel)]='giftAmount'>
+                              </div>
+                           </div>
+                        </div>
+						 <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Description</label>
+                                 <input type="text" id='gift-description' class="form-control giftDescription"  name='gift-description' [(ngModel)]='giftDescription'>
+                              </div>
+                           </div>
+						   </div>
+						   
+						   
+						   </div>
+						   
+						   
+						   </div>
+						   
+						   
+				</form>		   
+                       
+      </div>
+   </div>
+</div>
+</div>
+   </div>-->
+</div>
+</div>

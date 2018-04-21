@@ -1,0 +1,237 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+      
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <form id="form1">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div *ngIf='event_flag==1' class="form-group form-black label-floating" style="margin-top:10px">
+                                <label class="control-label" id='event_type_label'>Event Type</label>
+                                <input type="text" id='event_type_text' class="form-control" name='event_type' [(ngModel)]='event_type'>
+                            </div>
+                            <div *ngIf='event_flag==0' style="margin-top:10px" class="form-group form-black label-floating">
+                                <select class="selectpicker eventType" data-style="select-with-transition" name='type' (change)='eventChange($event)' [(ngModel)]="event_type"
+                                    title="Event Type">
+                                    <option *ngFor="let name of eventType" [value]="name.activity_id">{{name.activity_id}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-black label-floating">
+                                <label class="control-label">Event Name</label>
+                                <input type="text" id='user-last-name' class="form-control" name='event_name' [(ngModel)]='event_name'>
+                                <!-- <select class="selectpicker eventName" data-style="select-with-transition" name='type' [(ngModel)]="event_name" title="Event Name">
+                                    <option *ngFor="let name of eventName" [value]="name.name" >{{name.name}}</option>
+                                 </select>-->
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-black label-floating">
+                                <label class="control-label">Host Name</label>
+                                <input type="text" id='host-name' class="form-control" name='host_name' [(ngModel)]='host_name'>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-black label-floating">
+                                <!-- <label class="control-label">Event Name</label>
+                                 <input type="text" id='user-last-name' class="form-control"  name='event_name' [(ngModel)]='event_name'>-->
+                                <label class="control-label">Valid Till</label>
+                                <input type="text" (focus)='dateFocus($event)' (blur)='dateBlur($event)' [(ngModel)]='valid_till' class="form-control" id='valid-till'
+                                    name='valid_till'>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-black label-floating">
+                                <label class="control-label">Description</label>
+                                <input type="text" id='user-first-name' class="form-control" name='description' [(ngModel)]='description'>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" *ngIf='!live && !start'>
+                        <div class="col-md-12">
+                            <div class="form-group form-black label-floating">
+                                <select class="selectpicker type" data-style="select-with-transition" name='type' (change)='typeChange()' [(ngModel)]="typeVal"
+                                    title="Type">
+                                    <option *ngFor="let name of type" [value]="name.name">{{name.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf='live' class="row && !start">
+                        <div class="col-md-6">
+                            <div class="form-group form-black label-floating">
+                                <select class="selectpicker type" data-style="select-with-transition" name='type' (change)='typeChange()' [(ngModel)]="typeVal"
+                                    title="Type">
+                                    <option *ngFor="let name of type" [value]="name.name">{{name.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-black label-floating">
+                                <label class="control-label" id='event_type_label'>Link</label>
+                                <input type="text" class="form-control" id='event_type_text' name='link' [(ngModel)]='link'>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!--	<input type="file" (change)="fileChangeEvent($event)" />
+
+<image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="4 / 3"
+    [resizeToWidth]="128"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (loadImageFailed)="loadImageFailed()"
+></image-cropper>
+
+<img [src]="croppedImage" />-->
+
+
+                    <!--	<div class="row">
+            <div class="col-md-12">
+			<div emoji-form emoji-message="emojiMessage">
+    <textarea class="form-control" id="messageInput" placeholder="Here can be your nice text" rows="5" ng-model="emojiMessage.messagetext"></textarea>
+    <button id="emojibtn">
+        <i class="icon icon-emoji"></i>
+    </button>
+</div>
+
+
+		</div>
+		</div>-->
+
+                    <input class='file-upload ' type="file" (change)='fileChange($event,a,b)' accept="image/png,image/gif,image/jpeg" ng2FileSelect
+                        [uploader]="uploader" multiple style="display:none" />
+                    <input class='file-upload1 ' type="file" (change)='fileChange1($event,a,b)' accept="video/mp4" ng2FileSelect [uploader]="uploader1"
+                        multiple style="display:none" />
+                    <div class="row">
+                        <div class="image-div"></div>
+                    </div>
+
+                   
+                    <div class="row ">
+                        <div class='table-responsive'>
+                        <table class="table">
+                            <!--   <thead>
+                <tr>
+                    <th width="50%">Name</th>
+                    <th>Size</th>
+                    <th>Progress</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>-->
+                            <tbody>
+                                <tr *ngFor="let item of uploader.queue">
+                                    <td>
+                                        <strong>{{ item?.file?.name }}</strong>
+                                    </td>
+                                    <td nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                                    <td>
+                                        <div class="progress" style="margin-bottom: 0;">
+                                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span *ngIf="item.isSuccess">
+                                            <i class="glyphicon glyphicon-ok"></i>
+                                        </span>
+                                        <span *ngIf="item.isCancel">
+                                            <i class="glyphicon glyphicon-ban-circle"></i>
+                                        </span>
+                                        <span *ngIf="item.isError">
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </span>
+                                    </td>
+                                    <td nowrap>
+                                        <button type="button" class="btn btn-success btn-xs" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                                            <span class="glyphicon glyphicon-upload"></span> Upload
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-xs" (click)="item.cancel()" [disabled]="!item.isUploading">
+                                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                        </button>
+                                        <button type="button" class="btn btn-xs {{colors}}" (click)="removeItem(item)">
+                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr *ngFor="let item of uploader1.queue">
+                                    <td>
+                                        <strong>{{ item?.file?.name }}</strong>
+                                    </td>
+                                    <td nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                                    <td>
+                                        <div class="progress" style="margin-bottom: 0;">
+                                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <span *ngIf="item.isSuccess">
+                                            <i class="glyphicon glyphicon-ok"></i>
+                                        </span>
+                                        <span *ngIf="item.isCancel">
+                                            <i class="glyphicon glyphicon-ban-circle"></i>
+                                        </span>
+                                        <span *ngIf="item.isError">
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </span>
+                                    </td>
+                                    <td nowrap>
+                                        <button type="button" class="btn btn-success btn-xs" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                                            <span class="glyphicon glyphicon-upload"></span> Upload
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-xs" (click)="item.cancel()" [disabled]="!item.isUploading">
+                                            <span class="glyphicon glyphicon-ban-circle"></span> Cancel
+                                        </button>
+                                        <button type="button" class="btn btn-xs {{colors}}" (click)="removeItem(item)">
+                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                    <div *ngIf='normal' class="row">
+                        <div class="col-md-6 pull-left">
+                            <fa name="image" size="3x" class="image-upload" (click)='imageClick()'></fa>
+                            <fa name="video-camera" size="3x" class='video-upload' (click)='videoClick()'></fa>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn pull-right post-button {{colors}}" (click)="postItem()">Post</button>
+                        </div>
+                    </div>
+                    <div *ngIf='!normal' class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn pull-right post-button {{colors}}" (click)="postItem()">Post</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

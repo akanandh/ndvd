@@ -1,0 +1,35 @@
+.modal-login{
+	margin-bottom:35%;
+	margin-left:35%;
+	margin-right:35%;
+}
+input{
+	color:#9c9ea1;
+}
+#red{
+	position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #e9423f;
+    border-radius: 50%;
+    margin-left: 24px;
+}
+#blue{
+	    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #0db5ca;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+#green{
+	 position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #952daf;
+    border-radius: 50%;
+    margin-left: 25px;
+}
+.navbar .navbar-nav > li > .colors{
+	display:flex;
+}

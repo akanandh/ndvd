@@ -1,0 +1,36 @@
+.view-profile-title{
+
+font-size: 17px;
+    font-weight: 400;
+	color:#AAAAAA;
+}
+.view-profile-design{
+	margin-top:10px;
+	color:rgba(0, 0, 0, 0.54);
+	padding: 0 0rem 8px 0rem;
+	font-family: Roboto, sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    margin-left:0px !important;
+    line-height: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-decoration: inherit;
+    text-transform: inherit;
+	color:#AAAAAA;
+}
+.educational{
+	border-bottom:2px solid #ddd;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.family{
+	padding-top:10px;
+}
+.view-profile{
+	 margin-left:0px !important;
+}
+
+input{
+	color:#9c9ea1;
+}

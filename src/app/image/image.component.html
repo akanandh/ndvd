@@ -1,0 +1,159 @@
+<div class="main-content">
+<div class="container-fluid">
+        <div class ='card'>
+<!--<div class="col-md-3">
+            <div class="card">
+			
+			
+			<div ng-init="myVar = '../../assets/img/download.png'" (click)='showVideo()'>
+    <img src='../../assets/img/download2.jpg'>
+</div>
+
+
+<p>icdjvfsovkofskvoksfpkvpfs</p>
+
+</div>
+</div>-->
+<!--<div id="video-gallery">
+<div class="col-md-3">
+            <div class="card">
+			
+			
+<div class='item' data-poster="../../assets/img/download2.jpg" data-sub-html="video" data-html="video1" >
+    <img src="../../assets/img/download2.jpg" />
+</div>
+</div>
+</div>
+<div class="col-md-3">
+            <div class="card">
+			
+			
+			<div class='item' data-poster="../../assets/img/download2.jpg" data-sub-html="video" data-html="video2" >
+    <img src="../../assets/img/download2.jpg" />
+</div>
+</div>
+</div>
+
+</div>-->
+
+ <div class="card-header" attr.data-background-color={{color}}>
+                     <h4 class="title text-center">Gallery</h4>
+                  </div>
+				   <div class="card-content" >
+				   
+<div style="display:none;" id="video1">
+    <video class="lg-video-object lg-html5" controls preload="none">
+        <source src="../../assets/img/perfect.mp4" type="video/mp4">
+         Your browser does not support HTML5 video.
+    </video>
+</div>
+<div style="display:none;" id="video2">
+    <video class="lg-video-object lg-html5" controls preload="none">
+        <source src="../../assets/img/perfect.mp4" type="video/mp4">
+         Your browser does not support HTML5 video.
+    </video>
+</div>
+ 
+<!-- data-src should not be provided when you use html5 videos -->
+<!--<div class='demo-gallery'>
+<ul id="html5-videos" class='list-unstyled row'>
+  <li *ngFor="let name of video" class="col-xs-6 col-sm-4 col-md-3 video" data-poster="../../assets/img/download5.jpg" data-sub-html="<h4>CGI Animated Short HD: Student Academy Award Winning 'PeckPocketed' by Kevin Herron</h4>" data-html="#video1">
+                            <a href="">
+                                <img class="img-responsive" src="../../assets/img/download5.jpg">
+                                <div class="demo-gallery-poster">
+                                    <img src="../../assets/img/download4.png">
+									<p>ghgjhkhishrdzzzzzzzzzzzzzzzzzzzzzzzzfeeeeeeeeeeeeeeeeeeeeee</p>
+									
+                                </div>
+                            </a>
+                        </li>
+</ul>
+</div>-->
+</div>
+<div *ngFor="let name of video">
+<!--<div class='videos-gallery'>-->
+<div class='row video-gal'>
+<div class="col-md-8">
+<span class='video-heading'>{{name[0].activity}}</span>
+</div>
+<div class="col-md-4">
+<button type="submit" class="btn pull-right {{colors}}" (click)='subscribe($event,name[0].activity)'>SUBSCRIBE</button>
+</div>
+</div>
+<!--</div>-->
+
+<div class='demo-gallery mrb50'>
+<ul id={{name[0].name}} class='list-unstyled justified-gallery'>
+<li *ngFor="let name1 of name" attr.data-src={{name1.src}} class="col-xs-6 col-sm-4 col-md-3 video">
+                            <a href=''>
+                                <img class="img-responsive" src={{name1.src}}>
+								<div class="demo-gallery-poster">
+                                    <img src="../../assets/img/images.png">
+                                </div>
+                            </a>
+							</li>
+</ul>
+</div>
+</div>
+</div>
+	<!--<button id='id'></button>
+
+
+<div   class="modal fade top" id="modalVideoForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+<div class="modal-dialog modal-notify modal-top modal-login" role="document">
+          <video controls id="videoPlayer">
+    <source src="../../assets/img/perfect.mp4" type="video/mp4" autoplay preload="auto" height="100%" width="100%"/>
+    Browser not supported
+</video>
+           </div>
+
+
+
+
+
+
+     </div>-->
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+<!--<vg-player>
+   <vg-controls>
+       <vg-play-pause></vg-play-pause>
+       <vg-playback-button></vg-playback-button>
+ 
+       <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+ 
+       <vg-scrub-bar>
+           <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+           <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+       </vg-scrub-bar>
+ 
+       <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+ 
+       <vg-mute></vg-mute>
+       <vg-volume></vg-volume>
+ 
+       <vg-fullscreen></vg-fullscreen>
+   </vg-controls>
+ 
+   <video #media [vgMedia]="media" id="singleVideo" preload="auto" crossorigin>
+       <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+	 	  
+   </video>
+</vg-player>-->
+
+
+
+
+            
+
