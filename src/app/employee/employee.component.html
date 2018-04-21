@@ -1,0 +1,385 @@
+<div class="main-content">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="col-md-12">
+               <div class="card">
+                <div class="card-header" attr.data-background-color={{color}}>
+                   
+					 <h4 class="title text-center">Add Profile</h4>
+                     <fa name="save" class='pull-right' size="2x" style='margin-top: -28px;color: #e3f4f7;cursor: pointer;' (click)='updateProfile()'></fa>
+                  </div>
+                  <div class="card-content">
+                     <form id="form1" >
+                        <div class="row">
+                           <div class="col-md-4 pull-left">
+                              <image-upload url={{url}} [uploadedFiles]="uploadedImage" (removed)="onRemoved($event)" [style]="customStyle" buttonCaption="pick img"  dropBoxMessage="" [beforeUpload]="onBeforeUpload" (uploadFinished)="onUploadFinished($event)" [max]='1' class="customClass"></image-upload>
+                           </div>
+                         
+                        </div>
+						<div class="row">
+						 <div class="col-md-12 user-label-div">
+                              <label class="label-floating user-label">Personal Details</label>
+                           </div>
+						</div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">First Name</label>
+                                 <input type="text" id='user-first-name'class="form-control"  name='first_name' [(ngModel)]='first_name'>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Last Name</label>
+                                 <input type="text" id='user-last-name' class="form-control"  name='last_name' [(ngModel)]='last_name'>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Age</label>
+                                 <input type="number" id='user-age' class="form-control" name='user_age' [(ngModel)]='user_age' required>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">DOB</label>
+                                 <input type="text" id='user-dob' class="form-control date"  name='dob' [(ngModel)]='dob' (focus)='dateFocus($event)' (blur)='dateBlur($event)'>
+                              </div>
+                           </div>
+                        </div>
+                       
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-black label-floating">
+                                 <select class="selectpicker gender" data-style="select-with-transition" name='gender' [(ngModel)]="gender" title='Gender'>
+                                    <option *ngFor="let name of userGender" [value]="name.name">{{name.name}}</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-black label-floating">
+                                 <div class="year">
+                                    <select class="selectpicker married" data-style="select-with-transition" name='mariatal_status' [(ngModel)]="mariatal_status" title='Marital Status'>
+                                       <option *ngFor="let name of userMarried" [value]="name.name" >{{name.name}}</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-12">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Adress</label>
+                                 <input type="text" id='user-address' class="form-control" name='address' [(ngModel)]='address' >
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-4">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">City</label>
+                                 <input type="text" id='user-city' class="form-control" name='city' [(ngModel)]='city'>
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Country</label>
+                                 <input type="text" id='user-country' class="form-control" name='country' [(ngModel)]='country'>
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Postal Code</label>
+                                 <input type="number" id='user-postal-code' class="form-control"  name='postal-code'[(ngModel)]='postal_code'>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Phone No</label>
+                                 <input type="number" id='user-phone-no' class="form-control"   name='phone-no' [(ngModel)]='phone_no'>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Email Id</label>
+                                 <input type="email" id='user-mail-id' class="form-control"  name='mail-id' [(ngModel)]='mail_id'>
+                              </div>
+                           </div>
+                        </div>
+                        <!--<button type="submit" class="btn btn-info pull-right" (click)='nextPress()'>Next<fa name="angle-right" size="1g"></fa></button>-->
+                        <div class="clearfix"></div>
+                     </form>
+                  </div>
+                  <div class="card-content">
+                     <form id="form1">
+						<div class='row'>
+						 <div class="col-md-12 user-label-div">
+                              <label class="label-floating user-label">Educational Details</label>
+                           </div>
+						   </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div *ngIf='others==0' class="form-black label-floating">
+                                 <select  class="selectpicker degree" data-style="select-with-transition" name='degree'  [(ngModel)]="degree" title='Degree'>
+                                    <option *ngFor="let name of userdegree" [value]="name.degree" >{{name.degree}}</option>
+                                 </select>
+								 
+                              </div>
+							  <div *ngIf='others==1' class="form-group form-black label-floating">
+                                 <label class="control-label">degree</label>
+                                 <input type="text" id='user-degree' class="form-control" name='degree' [(ngModel)]='degree'>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-black label-floating">
+                                 <div class="year">
+                                    <select class="selectpicker year" data-style="select-with-transition"  name='year' [(ngModel)]="year" title="Year">
+                                       <option *ngFor="let name of useryear" [value]="name.year" >{{name.year}}</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-12">
+                              <div>
+                                 <div class="college">
+                                    <select class="selectpicker college" data-style="select-with-transition" name='college' [(ngModel)]="college" title="College">
+                                       <option *ngFor="let name of usercollege" [value]="name.college" >{{name.college}}</option>
+                                    </select>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </form>
+                  </div>
+                  <div class="card-content">
+                     <form id="form1">
+                        
+						<div class="row">
+						  <div class="col-md-12 user-label-div">
+                              <label class="label-floating user-label">Occupational Details</label>
+                           </div>
+						</div>
+                        <!--<div class="row">
+                           <div class="col-md-12">
+                                                                									  <div>
+                                                                        <label class="control-label">Salaried/Self Employed</label>
+                                                                      
+                                                                    </div>
+                            <div class="md-radio md-radio-inline">
+                              <input id="user-salaried" type="radio" name="g2">
+                              <label for="user-salaried">Salaried</label>
+                            </div>
+                            <div class="md-radio md-radio-inline">
+                              <input id="user-self-employed" type="radio" name="g2">
+                              <label for="user-self-employed">Self Employed</label>
+                            </div>
+                           </div>
+                           </div>-->
+                        <div class="row">
+                           <div class="col-md-12">
+                              <div class="form-black label-floating">
+                                 <select class="selectpicker employment" data-style="select-with-transition" name='type' [(ngModel)]="type" title="Employment">
+                                    <option *ngFor="let name of employment" [value]="name.name" >{{name.name}}</option>
+                                 </select>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Company</label>
+                                 <input type="text" id='user-company' class="form-control" name='company' [(ngModel)]='company'>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Designation</label>
+                                 <input type="text" id='user-designation' class="form-control"  name='designation' [(ngModel)]='designation'>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </form>
+                  </div>
+                  <div class="card-content">
+                     <form id="form1">
+						     <div class="row">
+                           <div class="col-md-12 user-label-div">
+                              <label class="label-floating user-label">Family Details</label>
+                           </div>
+                           <div class='col-md-4'>
+                              <!-- <button type="submit" class="btn btn-info pull-right " (click)='addPress()'><fa name="plus" size="1g"></fa></button>
+                                 <button type="submit" class="btn btn-info pull-right " (click)='subPress()'><fa name="minus" size="1g"></fa></button>-->
+                           </div>
+                           <!-- <div class="row">
+                              <div class="col-md-12">
+                              
+                                                                      
+                              
+                                                                    </div>
+                              									  </div>-->
+                        </div>
+                        <div *ngFor='let x of val'>
+                           <!-- <div class="col-md-3">
+                              <!-- <button type="submit" class="btn btn-info pull-left " (click)='addPress(x)'><fa name="plus" size="1g" (click)='addPress(x)'></fa>
+                              </div>-->
+                          
+                           <div class="row">
+                          <!--    <div class='col-md-1'>-->
+                                <!-- <div class="circle" (click)='addPress(x)'>
+                                    <fa name="plus" size="1g" class='icon-color'></fa>
+                                 </div>-->
+								 
+								 
+								 
+								 <button type="submit" class="btn pull-right circle {{colors}}" (click)='addPress(x)'>
+                                  <fa name="plus" size="1g" class='icon-color'></fa>
+                                 
+                              </button>
+							  
+							   <button type="submit" class="btn pull-right circle {{colors}}" (click)='subPress(x)'>
+                                   <fa name="minus" size="1g" class='icon-color'></fa>
+                              </button>
+								 
+								 
+								 
+								 
+                           
+                                <div class='col-md-12'>
+                                 <div class="row">
+                                    <div class="col-md-4">
+                                       <div class="form-group form-black label-floating">
+                                          <label class="control-label">Name</label>
+                                          <input type="text" class="form-control" value={{totalRecord.relativeName[x]}} (change)='nameChange($event)' id=relativeName{{x}} name='relative_name' >
+                                       </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                       <div class="form-group form-black label-floating">
+                                          <label class="control-label">Relation</label>
+                                          <input type="text" class="form-control" id=relation{{x}} value={{totalRecord.relation[x]}} (change)='relationChange($event)' name='relation' >
+                                       </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                       <div class="form-group form-black label-floating">
+                                          <label class="control-label">DOB</label>
+                                          <input type="text" (focus)='dateFocus($event)' (change)='dateChange($event)'(blur)='dateBlur($event)' class="form-control" id=relativedob{{x}} value={{totalRecord.relativedob[x]}} name='relative_dob' [(ngModel)]='totalRecord.relativedob[x]'>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row">
+                                    <!-- <button type="submit" class="btn btn-info pull-left " ><fa name="minus" size="1g"></fa></button>-->
+                                    <div class="col-md-12">
+                                       <div class="form-group form-black label-floating">
+                                          <label class="control-label">Working Status</label>
+                                          <input type="text" class="form-control" id=workingStatus{{x}} value={{totalRecord.workingStatus[x]}} (change)='statusChange($event)' name='working_status' >
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class='col-md-1'>
+							  
+							  
+							  
+							  
+                              <!--   <div class="circle" (click)='subPress(x)'>
+                                    <fa name="minus" size="1g" class='icon-color'></fa>
+                                 </div>-->
+                              </div>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </form>
+                  </div>
+				  
+				   <div class="card-content">
+                     <form id="form1">
+                        
+						<div class="row">
+						  <div class="col-md-12 user-label-div">
+                              <label class="label-floating user-label">Bank Details</label>
+                           </div>
+						</div>
+                        <!--<div class="row">
+                           <div class="col-md-12">
+                                                                									  <div>
+                                                                        <label class="control-label">Salaried/Self Employed</label>
+                                                                      
+                                                                    </div>
+                            <div class="md-radio md-radio-inline">
+                              <input id="user-salaried" type="radio" name="g2">
+                              <label for="user-salaried">Salaried</label>
+                            </div>
+                            <div class="md-radio md-radio-inline">
+                              <input id="user-self-employed" type="radio" name="g2">
+                              <label for="user-self-employed">Self Employed</label>
+                            </div>
+                           </div>
+                           </div>-->
+                        
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">PAN Number</label>
+                                 <input type="text" id='pan-no' class="form-control" name='pan-no' [(ngModel)]='panNo'>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">AADHAR Number</label>
+                                 <input type="text" id='aadhar-no' class="form-control"  name='aadhar-no' [(ngModel)]='adharNo'>
+                              </div>
+                           </div>
+                        </div>
+						 <div class="row">
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Bank Account Number</label>
+                                 <input type="text" id='account-no' class="form-control" name='account-no' [(ngModel)]='accountNo'>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">IFSC Code</label>
+                                 <input type="text" id='ifsc-code' class="form-control"  name='ifsc-code' [(ngModel)]='ifscCode'>
+                              </div>
+                           </div>
+                        </div>
+						<div class="row">
+                           <div class="col-md-4">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Date Of Joining</label>
+                                 <input type="text" id='date-joining' class="form-control" name='date-joining' [(ngModel)]='dateJoining' (focus)='dateFocus($event)' (blur)='dateBlur($event)'>
+                              </div>
+                           </div>
+                           <div class="col-md-4">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Department</label>
+                                 <input type="text" id='department' class="form-control"  name='department' [(ngModel)]='department'>
+                              </div>
+                           </div>
+						   <div class="col-md-4">
+                              <div class="form-group form-black label-floating">
+                                 <label class="control-label">Salary Per Month</label>
+                                 <input type="text" id='monthly-salary' class="form-control"  name='monthly-salary' [(ngModel)]='monthlySalary'>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="clearfix"></div>
+                     </form>
+                  </div>
+				  
+				  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
