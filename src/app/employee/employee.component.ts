@@ -192,7 +192,7 @@ this.color = val;
 		
 		}else if(localStorage.getItem('nvd-user')===null || localStorage.getItem('nvd-user')===undefined){
 			this._router.navigate(['login'])
-			location.reload();
+			//location.reload();
 		}else{
 			this._router.navigate(['user-profile']);
 		}

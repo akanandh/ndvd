@@ -120,7 +120,7 @@ details=[{name:'P.Anbazhagan',relation:'Father',date:'28-10-1964',occupation:'Ha
 			
 		}else{
 		 this._router.navigate(['login'])
-		location.reload();
+		//location.reload();
 	 }	
 			
   }

@@ -154,7 +154,7 @@ export class DashboardComponent implements OnInit {
       this.startAnimationForBarChart(emailsSubscriptionChart);
   }else{
 	  this._router.navigate(['login'])
-	location.reload();
+	//location.reload();
   }
   }
 

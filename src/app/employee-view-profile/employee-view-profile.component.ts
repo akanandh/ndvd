@@ -120,7 +120,7 @@ details=[{name:'P.Anbazhagan',relation:'Father',date:'28-10-1964',occupation:'Ha
 			
 	  }else if(localStorage.getItem('nvd-user')===null || localStorage.getItem('nvd-user')===undefined){
 			this._router.navigate(['login'])
-			location.reload();
+			//location.reload();
 		}else{
 			this._router.navigate(['dashboard']);
 		}	

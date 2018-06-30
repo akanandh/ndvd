@@ -94,7 +94,7 @@
             </div>
         </div> -->
 
-		<div class="user-profile">
+		<div class="user-profile" *ngIf="items1">
         <div class="col-md-3" *ngFor = "let item of items1 |filter:search" >
         <!-- <div class="col-md-3" *ngFor='let item of items'>-->
             <div class="card card-profile" >
@@ -106,7 +106,7 @@
                 </div>
 
                 <div class="content">
-					<h6 class="card-title user-profile-title">{{item.user_id}}<fa name="pencil" size='1g' class="user-edit" (click)='navigateEdit($event,item.user_id)'></fa><fa name="eye" size='1g' class="user-edit" (click)='navigateView($event,item.user_id)'></fa><fa name="close" size='1g' class="user-delete" (click)='delete($event,item.user_id)'></fa></h6>
+					<h6 class="card-title user-profile-title">{{item.user_id}}<fa name="pencil" size='1g' class="user-edit" (click)='navigateEdit($event,item.user_id)'></fa><fa name="eye" size='1g' class="user-edit" (click)='navigateView($event,item.user_id)'></fa><fa name="close" size='1g' class="user-delete" (click)='onDeleteClick($event,item.user_id)'></fa></h6>
                     <h4 class="card-title user-profile-design">{{item.name}}</h4>
 					
                     

@@ -1,3 +1,6 @@
+/**
+ * http://usejsdoc.org/
+ */
 var PropertiesReader = require('properties-reader');
 var properties = PropertiesReader('./properties.property');
 var express = require('express');
@@ -15,11 +18,14 @@ var server = require('http').createServer(app);
 var server2 = require('http').createServer(app2);
 var client = require('./DBFiles/query.js').client;
 var contentClient = require('./DBFiles/contentQuery.js').client
-var port = process.env.PORT || 3000;
+var port = 3000;
 var serverName = process.env.NAME || 'Unknown';
 var fs = require("fs");
 const uuidv4 = require('uuid/v4');
 
+
+
+//********************************passport***************************************
 
 const Redis = require('ioredis');
 
@@ -41,7 +47,6 @@ app.use(
         }
     })
 );
-
 /*app.use((req,res,next)=>{
 	if(req.originalUrl==properties.get('post-paths.app.post-media')||
 	req.originalUrl==properties.get('post-paths.app.delete-gallery')||
@@ -150,8 +155,9 @@ app.use(bodyParser.json({
 
 // Add headers
 app.use(function(req, res, next) {
+
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', "http://localhost:8082");
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -168,8 +174,9 @@ app.use(function(req, res, next) {
 });
 
 app2.use(function(req, res, next) {
+
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', "http://localhost:8082");
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -208,6 +215,7 @@ app2.use(bodyParser.json({
 
 app.use(express.static('public'));
 app.get('/', function (req, res) {
+    console.log(__dirname);
     res.sendFile(__dirname + '/dist/index.html');
     });
 //**********************required data***********************************************
@@ -237,6 +245,30 @@ function fieldArrayForupload(fieldNamesString) {
     return extensionArray;
 }
 
+
+
+//***********************post methods***********************************
+
+
+
+/*app.post(properties.get('post-paths.app.login'),function(req, res, next) {
+    client.login(req.body.username, req.body.password, (err, user) => {
+                    if (err) {
+                       res.send('error');
+                    }else if (!user) {
+					res.send({'result':'fail'});
+                    }else{
+						req.session.regenerate(function (err) {
+						req.session.user = user;
+						res.send({'result':'success'});
+						});
+
+					}
+
+                });
+}); */
+
+
 app.post(properties.get('post-paths.app.register'), function(req, res1) {
     client.register(req.body.userId, req.body.password, req.body.type, function(err, res) {
         var object = {
@@ -256,24 +288,25 @@ app.post(properties.get('post-paths.app.register'), function(req, res1) {
     });
 });
 
+
+
 app.post(properties.get('post-paths.app.validate-user'), function(req, res) {
     client.isUserValid(req.body.userId, function(bool) {
         res.send(bool);
     });
 });
 
+
 app.post(properties.get('post-paths.app.insert-user'), function(req, res) {
     client.insertUser(req.body, req.body.familyData, function(bool) {
         res.send(bool);
     });
 });
-
 app.post(properties.get('post-paths.app.update-user'), function(req, res) {
     client.updateUser(req.body, req.body.familyData,req.body.id, function(bool) {
         res.send(bool);
     });
 });
-
 app.post(properties.get('post-paths.app.select-user'), function(req, res) {
     client.slectUsers(req.body, function(value, data) {
         if (value) {
@@ -286,7 +319,6 @@ app.post(properties.get('post-paths.app.select-user'), function(req, res) {
 
     });
 });
-
 app.post(properties.get('post-paths.app.get-user'), function(req, res) {
     client.getUserDetails(req.body, function(value, data) {
         if (value) {
@@ -302,7 +334,6 @@ app.post(properties.get('post-paths.app.get-user'), function(req, res) {
         res.send(obj);
     });
 });
-
 app.post(properties.get('post-paths.app.delete-user'), function(req, res) {
     client.deleteUser(req.body, function(value) {
         if (value) {
@@ -317,7 +348,6 @@ app.post(properties.get('post-paths.app.delete-user'), function(req, res) {
         res.send(obj);
     });
 });
-
 app.post(properties.get('post-paths.app.get-content-list'), function(req, res) {
     contentClient.getContentList(function(value, data) {
         if (value) {
@@ -334,7 +364,9 @@ app.post(properties.get('post-paths.app.get-content-list'), function(req, res) {
     });
 });
 
+
 app.post(properties.get('post-paths.app.login'), function(req, res) {
+	console.log(req)
     client.login(req.body,function(data) {
         if (data) {
             obj = {
@@ -343,13 +375,13 @@ app.post(properties.get('post-paths.app.login'), function(req, res) {
             };
         } else {
             obj = {
-                result: 'fail',
-                data: null
+                result: 'fail'
             };
         }
         res.send(obj);
     });
 });
+
 
 app2.post(properties.get('post-paths.app2.delete-dp'), function(req, res) {
     fs.unlink(req.body.path, function(err) {

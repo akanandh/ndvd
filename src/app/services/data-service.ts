@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class DataService {
 
@@ -15,11 +15,11 @@ export class DataService {
   changeMessage(message: string) {
     this.messageSource.next(message)
   }
-changeColor(val:string){
-	 this.messageSource1.next(val)
-}
+  changeColor(val: string) {
+    this.messageSource1.next(val)
+  }
 
-loginClick(val:string){
-	this.messageSource2.next(val);
-}
+  loginClick(val: string) {
+    this.messageSource2.next(val);
+  }
 }

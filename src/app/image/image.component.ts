@@ -53,7 +53,7 @@ $('#lightgallery').lightGallery({
 
 	 }else{
 		 this._router.navigate(['login'])
-		 location.reload();
+		 //location.reload();
 	 
 	 }
   

@@ -94,7 +94,7 @@
             </div>
         </div> -->
 	
-		<div class="user-profile">
+		<div class="user-profile" *ngIf="items1">
         <div class="col-md-3" *ngFor = "let item of items1 |filter:search" >
         <!-- <div class="col-md-3" *ngFor='let item of items'>-->
             <div class="card card-profile" >

@@ -79,7 +79,7 @@ this.http.getMp4Info().subscribe(function(data){
 	  }.bind(this))
 	  }else{
 		  this._router.navigate(['login'])
-		location.reload();
+		//location.reload();
 	  }
   }
   
